@@ -10,9 +10,9 @@ namespace my_types { // to make it cool
   class union_find {
   private:
 
-    std::vector<unsigned int> parent;
-    std::vector<unsigned int> rank;
-    std::unordered_map<T, unsigned int> val_to_id;
+    std::vector<unsigned int> parent; // disjoint set
+    std::vector<unsigned int> rank; // rank set
+    std::unordered_map<T, unsigned int> val_to_id; // supporting any unique values, like strings (A, B, C etc.)
 
     unsigned int find_by_id(unsigned int id) {
       if (parent[id] == id) return id;
@@ -49,7 +49,7 @@ namespace my_types { // to make it cool
 
   public:
 
-    union_find(const std::set<T>& xs) {
+    union_find(const std::set<T>& xs) { // constructor
       val_to_id.reserve(xs.size());
       parent.reserve(xs.size());
       rank.reserve(xs.size());
@@ -62,31 +62,31 @@ namespace my_types { // to make it cool
       if (val_to_id.find(x) != val_to_id.end()) // if already exists
         return;
       unsigned int new_id = parent.size();
-      val_to_id[x] = new_id;
-      parent.push_back(new_id);
-      rank.push_back(0);
+      val_to_id[x] = new_id; // creating a new component
+      parent.push_back(new_id); // and making it in it's own set
+      rank.push_back(0); // setting rank to 0 (no childs)
     }
 
     unsigned int find(const T& x) {
-      auto it = val_to_id.find(x);
+      auto it = val_to_id.find(x); // checking if the element exists
       if (it == val_to_id.end()) {
         throw std::runtime_error("Component not found");
       }
-      return find_by_id(it->second);
+      return find_by_id(it->second); // using private method for everyting else
     }
 
-    void _union(const T& x, const T& y) {
+    void _union(const T& x, const T& y) { // union is reserved keyword, so _union was used
       unsigned int x_root = find(x);
       unsigned int y_root = find(y);
 
-      if (x_root == y_root) return;
+      if (x_root == y_root) return; // if they are already connected, don't do anything
 
       if (rank[x_root] < rank[y_root]) {
-        parent[x_root] = y_root;
+        parent[x_root] = y_root; // connect x tree to y if x is smaller
       } else if (rank[x_root] > rank[y_root]) {
-        parent[y_root] = x_root;
+        parent[y_root] = x_root; // otherwise, connect y tree to x
       } else {
-        parent[x_root] = y_root;
+        parent[x_root] = y_root; // or just increment rank of the shared root
         rank[y_root]++;
       }
     }
@@ -95,12 +95,12 @@ namespace my_types { // to make it cool
       return find(x) == find(y);
     }
 
-    void visualize(const std::string& message) {
-      visualize_private(message);
+    void visualize() { // overloading for no message
+      visualize_private("");
     }
 
-    void visualize() {
-      visualize_private("");
+    void visualize(const std::string& message) { // overloading for message support
+      visualize_private(message);
     }
   };
 }
