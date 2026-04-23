@@ -1,0 +1,3 @@
+/home/erduha/erduha/unik/design/Endterm/partA/CMakeFiles/PartA.dir
+/home/erduha/erduha/unik/design/Endterm/partA/CMakeFiles/edit_cache.dir
+/home/erduha/erduha/unik/design/Endterm/partA/CMakeFiles/rebuild_cache.dir
