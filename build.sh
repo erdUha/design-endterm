@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 cmake --build build
 
 echo "PartA:"
@@ -7,3 +8,7 @@ echo "PartA:"
 echo ""
 echo "PartB:"
 ./build/PartB
+
+echo ""
+echo "PartC:"
+./build/PartC
