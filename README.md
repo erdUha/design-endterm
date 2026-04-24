@@ -9,5 +9,5 @@ Cmake; Ninja
 
 # Setup
 
-- Create the directory `build/` if not exists
-- Execute `cmake -B build -G Ninja`, then `./build.sh` to build and run the project.
+- Execute `./setup.sh` to create build directory
+- Then `./build.sh` to build and run the project.
