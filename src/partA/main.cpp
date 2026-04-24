@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "my_types/queue.hpp"
-#include "my_types/stack.hpp"
+#include <my_types/queue.hpp>
+#include <my_types/stack.hpp>
 
 class Task {
 public:
