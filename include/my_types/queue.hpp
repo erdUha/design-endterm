@@ -51,6 +51,15 @@ namespace my_types { // to make it cool
       return sz;
     }
 
+    template <typename Func>
+    void for_each(Func f) const {
+      Node* current = head.get();
+      while (current != nullptr) {
+        f(current->data);
+        current = current->next.get();
+      }
+    }
+
     ~queue() { // in case of deleting a queue
       while (!isEmpty()) {
         dequeue(); // iterative cleanup prevents stack overflow
