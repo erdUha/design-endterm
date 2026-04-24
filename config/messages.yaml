@@ -1,3 +1,11 @@
-menu_prompts:
-  main_menu: "--- Integrated System Simulation ---"
+main_menu:
+  main_menu_message: "--- Integrated System Simulation ---"
   main_menu_options: "1. Tasks\n2. Connected components"
+tasks_menu:
+  tasks_menu_message: "<<< Tasks Module >>>"
+  tasks_menu_options: "1. New Task\n2. List tasks"
+components_menu:
+  components_menu_message: "<<< Components Module >>>" 
+  components_menu_options: "1. Union\n2. Check Conectivity"
+other:
+  not_in_list: "The Option is Not in the List"
