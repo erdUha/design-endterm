@@ -1,6 +1,6 @@
 # Cloning
 
-The project contains external libraries, to clone them too use:  
+The project contains external libraries, to clone them with the project use:  
 `git clone --recursive https://github.com/erdUha/design-endterm.git`
 
 # Requirements
