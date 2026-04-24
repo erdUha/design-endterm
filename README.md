@@ -1,3 +1,7 @@
+# Cloning
+
+The project contains external libraries, to clone them too use `git clone --recursive https://github.com/erdUha/design-endterm.git`
+
 # Requirements
 
 Cmake; Ninja
