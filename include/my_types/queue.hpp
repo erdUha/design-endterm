@@ -20,7 +20,7 @@ namespace my_types { // to make it cool
 
   public:
 
-    bool isEmpty() {
+    bool is_empty() {
       return sz == 0; // self-explainatory
     }
 
@@ -37,13 +37,13 @@ namespace my_types { // to make it cool
     }
 
     T dequeue() {
-      if (isEmpty()) {
+      if (is_empty()) {
         throw std::runtime_error("Queue is empty"); // can't dequeue from empty queue
       }
       T res = std::move(head->data); // getting head (ayo)
       head = std::move(head->next); // moving the head pointer to the next node
       sz--; // decrement size
-      if (isEmpty()) tail = nullptr; // if popped last element, empty the tail
+      if (is_empty()) tail = nullptr; // if popped last element, empty the tail
       return res; // passing the head
     }
 
@@ -61,7 +61,7 @@ namespace my_types { // to make it cool
     }
 
     ~queue() { // in case of deleting a queue
-      while (!isEmpty()) {
+      while (!is_empty()) {
         dequeue(); // iterative cleanup prevents stack overflow
       }
     }

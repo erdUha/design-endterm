@@ -2,12 +2,12 @@
 #include <string>
 #include <yaml-cpp/yaml.h>
 
-class message_manager {
+class MessageManager {
 private:
   YAML::Node config;
 
 public:
-  message_manager(const std::string& filename) {
+  MessageManager(const std::string& filename) {
     try {
       config = YAML::LoadFile(filename);
     } catch (const YAML::Exception& e) {

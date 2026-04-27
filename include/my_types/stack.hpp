@@ -9,7 +9,7 @@ namespace my_types { // to make it cool
     std::vector<T> data; // dynamic array
 
   public:
-    bool isEmpty() {
+    bool is_empty() {
       return data.empty(); // checking if empty
     }
 
@@ -18,7 +18,7 @@ namespace my_types { // to make it cool
     }
 
     T pop() {
-      if (isEmpty()) {
+      if (is_empty()) {
         throw std::runtime_error("Stack is empty");
       }
       T res = data.back(); // getting the element
@@ -27,7 +27,7 @@ namespace my_types { // to make it cool
     }
 
     T peek() {
-      if (isEmpty()) {
+      if (is_empty()) {
         throw std::runtime_error("Stack is empty");
       }
       return data.back(); // just getting the element

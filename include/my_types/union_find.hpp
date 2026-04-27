@@ -57,10 +57,13 @@ namespace my_types { // to make it cool
       for (const T& x : xs)
         add_component(x);
     }
+    
+    union_find() { // constructor without initial set
+    }
 
     void add_component(const T& x) {
       if (val_to_id.find(x) != val_to_id.end()) // if already exists
-        return;
+        throw std::runtime_error("The Element Already Exists");
       unsigned int new_id = parent.size();
       val_to_id[x] = new_id; // creating a new component
       parent.push_back(new_id); // and making it in it's own set
@@ -70,7 +73,7 @@ namespace my_types { // to make it cool
     unsigned int find(const T& x) {
       auto it = val_to_id.find(x); // checking if the element exists
       if (it == val_to_id.end()) {
-        throw std::runtime_error("Component not found");
+        throw std::runtime_error("Component not Found");
       }
       return find_by_id(it->second); // using private method for everyting else
     }

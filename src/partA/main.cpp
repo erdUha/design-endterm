@@ -25,7 +25,7 @@ int main(int argc, char** argv)
   }
 
   std::cout << "Processing Tasks:\n";
-  while (!tasks.isEmpty())
+  while (!tasks.is_empty())
   {
     Task processed_task = tasks.dequeue();
     task_actions.push(processed_task);
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
   }
 
   std::cout << "\nUndo-ing Tasks:\n";
-  while (!task_actions.isEmpty())
+  while (!task_actions.is_empty())
   {
     std::cout << "\t" << task_actions.pop().taskID << "\n";
   }

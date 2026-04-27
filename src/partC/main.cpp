@@ -2,12 +2,11 @@
 #include <string>
 #include <set>
 #include <vector>
-#include <Task.hpp>
-#include <message_manager.hpp>
-#include "modules/tasks_module.hpp"
+#include <MessageManager.hpp>
 #include "modules/components_module.hpp"
+#include "modules/tasks_module.hpp"
 
-message_manager msg("config/messages.yaml"); // getting messages from config
+MessageManager msg("config/messages.yaml"); // getting messages from config
 
 void prompt_main();
 
@@ -23,7 +22,7 @@ void prompt_main() {
   while (running) {
     std::cout << msg.get("main_menu", "main_menu_message") << "\n";
     std::cout << msg.get("main_menu", "main_menu_options") << "\n";
-    std::cout << msg.get("other", "choose_main");
+    std::cout << msg.get("other", "choose");
 
     int input;
     if (!(std::cin >> input)) {
@@ -35,10 +34,16 @@ void prompt_main() {
     std::cout << "\n";
 
     switch (input) {
-      case 0:
-        std::cout << "Exiting...\n";
-        running = false;
+      case 0: {
+        std::cout << "Are You Shure You Want to Exit? [Y/n]: ";
+        std::string input_confirmation;
+        std::cin >> input_confirmation;
+        if (input_confirmation == "y" || input_confirmation == "Y") {
+          std::cout << "Exiting...\n";
+          running = false;
+        }
         break;
+      }
       case 1:
         tasks_module::prompt_tasks();
         break;
