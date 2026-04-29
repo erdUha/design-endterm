@@ -1,5 +1,6 @@
 #pragma once // no double declarations
 #include <iostream>
+#include <sstream>
 #include <unordered_map>
 #include <set>
 #include <vector>
@@ -95,6 +96,21 @@ namespace my_types { // to make it cool
     }
 
     bool connected(const T& x, const T& y) {
+      unsigned int root_x, root_y; 
+      try {
+        root_x = find(x);
+      } catch (const std::exception& e) {
+        std::stringstream ss;
+        ss << "Component \"" << x << "\" Not Found";
+        throw std::runtime_error(ss.str());
+      }
+      try {
+        root_y = find(y);
+      } catch (const std::exception& e) {
+        std::stringstream ss;
+        ss << "Component \"" << y << "\" Not Found";
+        throw std::runtime_error(ss.str());
+      }
       return find(x) == find(y);
     }
 
