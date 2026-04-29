@@ -1,4 +1,4 @@
-#pragma once
+#pragma once // no double declarations
 #include <iostream>
 #include <string>
 #include <set>
