@@ -3,9 +3,9 @@ main_menu:
   main_menu_options: "1. Tasks\n2. Connected components\n0. Exit"
 tasks_menu:
   tasks_menu_message: "<<< Tasks Module >>>"
-  tasks_menu_options: "1. New Task\n2. List tasks\n3. Complete Next Task\n4. Undo Previous Task\n0. Go Back"
+  tasks_menu_options: "1. New Task\n2. List tasks\n3. Complete Next Task\n4. Show Last Completed Task\n5. Undo Previous Task\n0. Go Back"
   new_task_message: "--> New Task <--"
-  new_task_options: "1. New Component\n2. Connect\n0. Go Back"
+  new_task_options: "1. New Component\n2. Connect\n0. Cancel"
   new_task_description_prompt: "Enter Task's Description: "
   new_task_new_component_prompt: "Enter Component's ID to Create (String): "
   new_task_connect_first_component_prompt: "Enter First Component to Connect: "
@@ -22,4 +22,4 @@ components_menu:
   check_connectivity_prompt_second: "Enter Second Component: "
 other:
   choose: "Choose: "
-  not_in_list: "The Option is Not in the List"
+  not_in_list: "The Option is Not In the List"

@@ -4,6 +4,8 @@
 #include <set>
 #include <MessageManager.hpp>
 #include <my_types/union_find.hpp>
+#include <my_types/stack.hpp>
+#include <TaskUndoData.hpp>
 
 namespace components_module {
 
@@ -50,6 +52,8 @@ namespace components_module {
         case 4:
           check_connectivity_prompt();
           break;
+        default:
+          std::cout << msg.get("other", "not_in_list") << "\n\n";
       }
     }
   }
